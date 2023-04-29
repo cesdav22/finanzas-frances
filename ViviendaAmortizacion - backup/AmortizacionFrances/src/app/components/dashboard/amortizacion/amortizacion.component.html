@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Metodo Frances</span>
+      </mat-toolbar>
+    </div>
+
+  
+    <div>
+      <h1>Calculadora de financiamiento para un crédito Vivienda</h1>
+      <form>
+        <div>
+          <label for="montoPrestamo">Monto del préstamo:</label>
+          <input type="number" id="montoPrestamo" [(ngModel)]="montoPrestamo" required>
+        </div>
+        <div>
+          <label for="plazo">Plazo del préstamo (en años):</label>
+          <input type="number" id="plazo" [(ngModel)]="plazo" required>
+        </div>
+        <div>
+          <label for="tasaInteres">Tasa de interés anual (%):</label>
+          <input type="number" id="tasaInteres" [(ngModel)]="tasaInteres" required>
+        </div>
+        <button type="button" (click)="calcularFinanciamiento()">Calcular</button>
+      </form>
+      <div *ngIf="cuotaMensual && montoTotal">
+        <h2>Resultados:</h2>
+        <p>Cuota mensual: {{ cuotaMensual | currency }}</p>
+        <p>Monto total a pagar: {{ montoTotal | currency }}</p>
+      </div>
+    </div>
